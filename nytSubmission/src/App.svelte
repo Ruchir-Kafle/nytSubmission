@@ -1,6 +1,7 @@
 <script lang="ts">
 
     import { onMount } from "svelte";
+    import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
     import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
     import * as THREE from "three";
 
@@ -36,12 +37,25 @@
         floor.rotation.x = -Math.PI / 2;
         scene.add(floor);
 
-        const box = new THREE.Mesh(
-            new THREE.BoxGeometry(2, 2, 2),
-            new THREE.MeshStandardMaterial({color: 0xffffff})
+        const loader = new GLTFLoader();
+
+        loader.load(
+            "/assets/BASEmodel.glb",
+            (gltf) => {
+                const model = gltf.scene;
+                model.position.set(0, 0, -3)
+                scene.add(model);
+            },
+            (xhr) => console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`),
+            (error) => console.error("Error loading GLB:", error)
         );
-        box.position.set(0, 1, -3)
-        scene.add(box);
+
+        // const box = new THREE.Mesh(
+        //     new THREE.BoxGeometry(2, 2, 2),
+        //     new THREE.MeshStandardMaterial({color: 0xffffff})
+        // );
+        // box.position.set(0, 1, -3)
+        // scene.add(box);
 
         const light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(3, 5, 3);
