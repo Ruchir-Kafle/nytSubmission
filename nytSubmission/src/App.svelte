@@ -1,15 +1,14 @@
-<script>
+<script lang="ts">
 
     import { onMount } from "svelte";
     import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
     import * as THREE from "three";
-    import { elasticIn } from "svelte/easing";
 
     let container;
 
     onMount(() => {
 
-        const floorHeight = 1.6;
+        const playerHeight = 1.6;
 
         const scene = new THREE.Scene();
         const characterCamera = new THREE.PerspectiveCamera(
@@ -19,7 +18,6 @@
             1000
         )
         const characterCameraVisual = new THREE.CameraHelper(characterCamera);
-            // @ts-ignore
         scene.add(characterCameraVisual);
         const orbitCamera = new THREE.PerspectiveCamera(
             75,
@@ -35,28 +33,22 @@
             new THREE.PlaneGeometry(20, 20),
             new THREE.MeshStandardMaterial({color:0xff0000})
         );
-        // @ts-ignore
         floor.rotation.x = -Math.PI / 2;
-        // @ts-ignore
         scene.add(floor);
 
         const box = new THREE.Mesh(
             new THREE.BoxGeometry(2, 2, 2),
             new THREE.MeshStandardMaterial({color: 0xffffff})
         );
-        // @ts-ignore
-        box.position.set(0, 0.5, -3)
-        // @ts-ignore
+        box.position.set(0, 1, -3)
         scene.add(box);
 
         const light = new THREE.DirectionalLight(0xffffff, 1);
-        // @ts-ignore
         light.position.set(3, 5, 3);
         scene.add(light);
 
-        // @ts-ignore
-        characterCamera.position.y = floorHeight;
-        // @ts-ignore
+        characterCamera.position.y = playerHeight;
+        
         characterCamera.position.z = 5;
 
         let orbit = false;
@@ -76,9 +68,8 @@
                 orbit = !orbit;
 
                 if (orbit) {
-                    // @ts-ignore
                     orbitCamera.position.copy(characterCamera.position).add(new THREE.Vector3(5, 3, 5));
-                    // @ts-ignore
+                    
                     controls.target.copy(characterCamera.position);
                     controls.update();
                 }
@@ -101,10 +92,7 @@
         window.addEventListener("mousemove", e => {
             if (isDragging) {
                 const deltaX = e.clientX - prevMouse.x;
-    
-                // @ts-ignore
                 characterCamera.rotation.y += deltaX / container.clientWidth * Math.PI;
-
                 prevMouse.x = e.clientX;
             }
         })
@@ -132,7 +120,7 @@
 
             moveDir.normalize();
             const speed = 0.1;
-            // @ts-ignore
+            
             characterCamera.position.add(moveDir.multiplyScalar(speed));
 
             characterCameraVisual.visible = orbit;
