@@ -12,7 +12,16 @@
         const floorHeight = 1.6;
 
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
+        const characterCamera = new THREE.PerspectiveCamera(
+            75,
+            container.clientWidth / container.clientHeight,
+            0.1,
+            1000
+        )
+        const characterCameraVisual = new THREE.CameraHelper(characterCamera);
+            // @ts-ignore
+        scene.add(characterCameraVisual);
+        const orbitCamera = new THREE.PerspectiveCamera(
             75,
             container.clientWidth / container.clientHeight,
             0.1,
@@ -46,10 +55,11 @@
         scene.add(light);
 
         // @ts-ignore
-        camera.position.y = floorHeight;
+        characterCamera.position.y = floorHeight;
         // @ts-ignore
-        camera.position.z = 5;
+        characterCamera.position.z = 5;
 
+        let orbit = false;
         const keys = { w: false, a: false, s: false, d: false };
 
         let isDragging = false;
@@ -61,12 +71,27 @@
 
         window.addEventListener("keyup", e => {
             if (keys[e.key.toLowerCase()] !== undefined) keys[e.key.toLowerCase()] = false;
+            if (e.key.toLowerCase() === "j") {
+                
+                orbit = !orbit;
+
+                if (orbit) {
+                    // @ts-ignore
+                    orbitCamera.position.copy(characterCamera.position).add(new THREE.Vector3(5, 3, 5));
+                    // @ts-ignore
+                    controls.target.copy(characterCamera.position);
+                    controls.update();
+                }
+            }
+
         });
 
         window.addEventListener("mousedown", e => {
-            isDragging = true;
-            prevMouse.x = e.clientX;
-            prevMouse.y = e.clientY;
+            if (!orbit) {
+                isDragging = true;
+                prevMouse.x = e.clientX;
+                prevMouse.y = e.clientY;
+            }
         })
         
         window.addEventListener("mouseup", () => {
@@ -78,13 +103,14 @@
                 const deltaX = e.clientX - prevMouse.x;
     
                 // @ts-ignore
-                camera.rotation.y += deltaX / container.clientWidth * Math.PI;
+                characterCamera.rotation.y += deltaX / container.clientWidth * Math.PI;
 
                 prevMouse.x = e.clientX;
             }
         })
 
-        // const controls = new OrbitControls(camera, renderer.domElement);
+        const controls = new OrbitControls(orbitCamera, renderer.domElement);
+        controls.enableDamping = true;
 
         function animate() {
             requestAnimationFrame(animate);
@@ -93,11 +119,11 @@
             const moveDir = new THREE.Vector3();
             
             const forward = new THREE.Vector3();
-            camera.getWorldDirection(forward);
+            characterCamera.getWorldDirection(forward);
             forward.y = 0;
             forward.normalize();
 
-            right.crossVectors(forward, camera.up).normalize();
+            right.crossVectors(forward, characterCamera.up).normalize();
 
             if (keys.w) moveDir.add(forward);
             if (keys.s) moveDir.add(forward.clone().multiplyScalar(-1));
@@ -107,10 +133,17 @@
             moveDir.normalize();
             const speed = 0.1;
             // @ts-ignore
-            camera.position.add(moveDir.multiplyScalar(speed));
+            characterCamera.position.add(moveDir.multiplyScalar(speed));
 
-            renderer.render(scene, camera);
-            // controls.update();
+            characterCameraVisual.visible = orbit;
+
+            if (orbit) {
+                renderer.render(scene, orbitCamera);
+                controls.update();
+            } else {
+                renderer.render(scene, characterCamera);
+            }
+
         }
 
         animate();
