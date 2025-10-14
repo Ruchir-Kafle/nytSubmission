@@ -3,6 +3,7 @@
     import { onMount } from "svelte";
     import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
     import * as THREE from "three";
+    import { elasticIn } from "svelte/easing";
 
     let container;
 
@@ -49,9 +50,7 @@
         // @ts-ignore
         camera.position.z = 5;
 
-        const velocity = new THREE.Vector3();        
-        const direction = new THREE.Vector3();        
-        const keys = { w: false, a: false, s: false, d: false, " ": false };
+        const keys = { w: false, a: false, s: false, d: false };
 
         let isDragging = false;
         let prevMouse = { x: 0, y: 0 };
@@ -79,7 +78,9 @@
                 const deltaX = e.clientX - prevMouse.x;
     
                 // @ts-ignore
-                camera.rotation.y = deltaX / container.clientWidth * Math.PI;
+                camera.rotation.y += deltaX / container.clientWidth * Math.PI;
+
+                prevMouse.x = e.clientX;
             }
         })
 
@@ -87,33 +88,26 @@
 
         function animate() {
             requestAnimationFrame(animate);
-
-            // @ts-ignore
-            if (camera.position.y == floorHeight) {
-                if (keys[" "]) {
-                    velocity.y = 0.05;
-                }
-            } else {
-                velocity.y -= 0.001;
-            }
             
+            const right = new THREE.Vector3();
+            const moveDir = new THREE.Vector3();
+            
+            const forward = new THREE.Vector3();
+            camera.getWorldDirection(forward);
+            forward.y = 0;
+            forward.normalize();
+
+            right.crossVectors(forward, camera.up).normalize();
+
+            if (keys.w) moveDir.add(forward);
+            if (keys.s) moveDir.add(forward.clone().multiplyScalar(-1));
+            if (keys.d) moveDir.add(right);
+            if (keys.a) moveDir.add(right.clone().multiplyScalar(-1));
+
+            moveDir.normalize();
+            const speed = 0.1;
             // @ts-ignore
-            if (camera.position.y < floorHeight) {
-                velocity.y = 0;
-                // @ts-ignore
-                camera.position.y = floorHeight;
-            }
-
-            direction.z = Number(keys.s) - Number(keys.w);
-            direction.x = Number(keys.d) - Number(keys.a);
-            direction.normalize();
-
-            const speed = 0.05;
-            velocity.z = direction.z * speed;
-            velocity.x = direction.x * speed;
-
-            // @ts-ignore
-            camera.position.add(velocity);
+            camera.position.add(moveDir.multiplyScalar(speed));
 
             renderer.render(scene, camera);
             // controls.update();
