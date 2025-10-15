@@ -1,3 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1760479596
-icon.svg::CompressedTexture2D::1277685315801592266::1760479593::1760479597::1::::<><><>0<>0<>ab975c805515a82f774ccebe8375aade<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1760482858
+main_scene.tscn::PackedScene/PackedScene::1161348780582685566::1760482596::0::1::::<><><>0<>0<><>::
+::res://assets/::1760482858
+rainySky.jpg::CompressedTexture2D::1122521756271774404::1760482832::1760482868::1::::<><><>0<>0<>d3a34650e3e9aa20354134646b75136b<>res://.godot/imported/rainySky.jpg-d5404b5e9602343266a47c4458b2bfc5.s3tc.ctex::

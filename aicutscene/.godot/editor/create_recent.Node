@@ -1,0 +1,7 @@
+CPUParticles3D
+GPUParticles3D
+WorldEnvironment
+Camera3D
+MeshInstance3D
+CharacterBody3D
+StaticBody3D
