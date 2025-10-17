@@ -12,4 +12,4 @@ config_version=5
 
 config/name="AICutscene"
 run/main_scene="uid://qstik6kh4cmg"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")

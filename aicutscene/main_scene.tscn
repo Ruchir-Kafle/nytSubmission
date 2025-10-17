@@ -1,4 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://qstik6kh4cmg"]
+[gd_scene load_steps=12 format=3 uid="uid://qstik6kh4cmg"]
+
+[ext_resource type="PackedScene" uid="uid://i25f1xntnw1o" path="res://joe.tscn" id="1_0f027"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3jxj"]
 albedo_color = Color(0.439049, 0.439049, 0.439049, 1)
@@ -29,6 +31,7 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.2
 fog_mode = 1
+fog_density = 1.0
 fog_height_density = 12.1263
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f027"]
@@ -90,3 +93,6 @@ direction = Vector3(0, -1, 0)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 20.0
+
+[node name="Ch33_nonPBR" parent="." instance=ExtResource("1_0f027")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -8)

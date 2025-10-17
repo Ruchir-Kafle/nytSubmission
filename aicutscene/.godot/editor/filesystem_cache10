@@ -1,5 +1,11 @@
-ea4bc82a6ad023ab7ee23ee620429895
-::res://::1760482858
-main_scene.tscn::PackedScene/PackedScene::1161348780582685566::1760482596::0::1::::<><><>0<>0<><>::
-::res://assets/::1760482858
-rainySky.jpg::CompressedTexture2D::1122521756271774404::1760482832::1760482868::1::::<><><>0<>0<>d3a34650e3e9aa20354134646b75136b<>res://.godot/imported/rainySky.jpg-d5404b5e9602343266a47c4458b2bfc5.s3tc.ctex::
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1760661813
+main_scene.tscn::PackedScene::1161348780582685566::1760660077::0::1::::<><><>0<>0<><>::
+::res://assets/::1760661943
+Ch33_nonPBR.fbx::PackedScene::2966996634167655268::1760661825::1760661943::1::::<><><>0<>0<>e9b4d59e0cf02c18e1f8f5ad779440e2<>res://.godot/imported/Ch33_nonPBR.fbx-73a2e794f485f4378430d4bf8f97f78b.scn::uid://b6u3kfs15ylik::::res://assets/Ch33_nonPBR_0.png<>uid://dwq1hl6i0etjj::::res://assets/Ch33_nonPBR_3.png<>uid://b60djpng4g2qh::::res://assets/Ch33_nonPBR_4.png
+Ch33_nonPBR_0.png::CompressedTexture2D::4605280616935408038::1760661839::1760661948::1::::<><><>0<>0<>11b72674990ffb2a3405b223acc2ebc9<>res://.godot/imported/Ch33_nonPBR_0.png-287771f214b376bc96d8454ad5947494.s3tc.ctex::
+Ch33_nonPBR_1.png::CompressedTexture2D::3687407418358778566::1760661858::1760661859::1::::<><><>0<>0<>4d8a89814a5243165af49d8e9212bdda<>res://.godot/imported/Ch33_nonPBR_1.png-6d350abc436287bdf515048ef965511d.ctex::
+Ch33_nonPBR_2.png::CompressedTexture2D::8373790364533559840::1760661866::1760661874::1::::<><><>0<>0<>d4772f1ecdef7db2b0495efd50fa2894<>res://.godot/imported/Ch33_nonPBR_2.png-68593d2845d77134cbe1b29f2e68e47f.ctex::
+Ch33_nonPBR_3.png::CompressedTexture2D::8738038423593094135::1760661896::1760661948::1::::<><><>0<>0<>3f2993f4de6df81542217fee5423b1aa<>res://.godot/imported/Ch33_nonPBR_3.png-7efbe24d1f7009c3b9e24ce539b4531d.s3tc.ctex::
+Ch33_nonPBR_4.png::CompressedTexture2D::4614083311691386259::1760661921::1760661948::1::::<><><>0<>0<>88ce164b2108796cb2ebd96061ca7a25<>res://.godot/imported/Ch33_nonPBR_4.png-286962f3ea91d0c4d734df96752c3ad9.s3tc.ctex::
+Ch33_nonPBR_5.png::CompressedTexture2D::8841475325325850427::1760661931::1760661935::1::::<><><>0<>0<>232668ec31e6b2b37fe24fc3cae59c42<>res://.godot/imported/Ch33_nonPBR_5.png-51503399826007dae0e8ee5ce2361ae8.ctex::
