@@ -1,3 +1,9 @@
+OmniLight3D
+DirectionalLight3D
+CSGBox3D
+SpotLight3D
+AnimationPlayer
+AnimationTree
 CPUParticles3D
 GPUParticles3D
 WorldEnvironment

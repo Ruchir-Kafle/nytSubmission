@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnmyyep4l7cmh"]
+
+[ext_resource type="PackedScene" uid="uid://ie46x2v4jeup" path="res://assets/chair/Office chair.fbx" id="1_qlqds"]
+
+[node name="Office chair" instance=ExtResource("1_qlqds")]
+transform = Transform3D(0.11107597, 0, 0, 0, 0.14861251, 0, 0, 0, 0.1054788, 0, 0, 0)

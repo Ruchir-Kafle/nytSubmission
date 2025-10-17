@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://l7c26i4oovne"
+path="res://.godot/imported/10240_Office_Desk_v3_max2011.obj-9e20660a5b38a8cfedb73bcb356e3fb9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/10240_Office_Desk_v3_max2011.obj-9e20660a5b38a8cfedb73bcb356e3fb9.mesh"]
+
+source_file="res://assets/desk/10240_Office_Desk_v3_max2011.obj"
+dest_files=["res://.godot/imported/10240_Office_Desk_v3_max2011.obj-9e20660a5b38a8cfedb73bcb356e3fb9.mesh", "res://.godot/imported/10240_Office_Desk_v3_max2011.obj-9e20660a5b38a8cfedb73bcb356e3fb9.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
