@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv62prst47c1b"]
+
+[ext_resource type="Script" uid="uid://b3o4ayynhgbai" path="res://dialogue.gd" id="1_kp46k"]
+
+[node name="dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kp46k")
+
+[node name="textPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 468.0
+offset_right = 164.0
+offset_bottom = 508.0
+scale = Vector2(22.268225, 4.1005907)
+metadata/_edit_use_anchors_ = true
+
+[node name="namePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 405.0
+offset_right = 161.0
+offset_bottom = 445.0
+scale = Vector2(4.956895, 1.1620209)
+
+[node name="characterText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 479.0
+offset_right = 1000.0
+offset_bottom = 618.0
+text = "placeholder"
+fit_content = true
+
+[node name="characterName" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 408.0
+offset_right = 316.0
+offset_bottom = 447.0
+text = "placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="typewriterTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="character_dialogue" from="." to="." method="_on_character_dialogue"]
+[connection signal="timeout" from="typewriterTimer" to="." method="_on_typewriter_timer_timeout"]

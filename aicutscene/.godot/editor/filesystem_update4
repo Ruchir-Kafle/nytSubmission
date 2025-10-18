@@ -1,3 +1,5 @@
-res://main_scene.tscn
 res://joe.tscn
-res://office_chair.tscn
+res://dialogue.tscn
+res://dialogue.gd
+res://main_scene.tscn
+res://main_scene.gd

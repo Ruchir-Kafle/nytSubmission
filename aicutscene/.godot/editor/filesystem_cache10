@@ -1,7 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760739662
-joe.tscn::PackedScene::619080788970584914::1760739334::0::1::::<><><>0<>0<><>::uid://bijiabiqyunaq::::res://assets/joe/Ch33_nonPBR.fbx<>uid://l7c26i4oovne::::res://assets/desk/10240_Office_Desk_v3_max2011.obj<>uid://bnmyyep4l7cmh::::res://office_chair.tscn
-main_scene.tscn::PackedScene::1161348780582685566::1760739662::0::1::::<><><>0<>0<><>::uid://i25f1xntnw1o::::res://joe.tscn
+::res://::1760801317
+joe.tscn::PackedScene::619080788970584914::1760801267::0::1::::<><><>0<>0<><>::uid://bijiabiqyunaq::::res://assets/joe/Ch33_nonPBR.fbx<>uid://l7c26i4oovne::::res://assets/desk/10240_Office_Desk_v3_max2011.obj<>uid://bnmyyep4l7cmh::::res://office_chair.tscn
+main_scene.tscn::PackedScene::1161348780582685566::1760740032::0::1::::<><><>0<>0<><>::uid://i25f1xntnw1o::::res://joe.tscn
 office_chair.tscn::PackedScene::3325148485515406263::1760739262::0::1::::<><><>0<>0<><>::uid://ie46x2v4jeup::::res://assets/chair/Office chair.fbx
 ::res://assets/::1760739821
 ::res://assets/chair/::1760737235
@@ -19,5 +19,5 @@ Ch33_nonPBR_2.png::CompressedTexture2D::8373790364533559840::1760719335::1760737
 Ch33_nonPBR_3.png::CompressedTexture2D::8738038423593094135::1760719335::1760737221::1::::<><><>0<>0<>2f102cb4270e5c6ddfbccf37f5c29ae7<>res://.godot/imported/Ch33_nonPBR_3.png-04652b802048d0a8e38cd1a1ccf72180.s3tc.ctex::
 Ch33_nonPBR_4.png::CompressedTexture2D::4614083311691386259::1760719335::1760737221::1::::<><><>0<>0<>e25ab698c134a30192b9d85db59bb69c<>res://.godot/imported/Ch33_nonPBR_4.png-a2128acc93e74319fe878b90ceb6c587.s3tc.ctex::
 Ch33_nonPBR_5.png::CompressedTexture2D::8841475325325850427::1760719335::1760737221::1::::<><><>0<>0<>82687cbceb9bc72de0f158fa8cf2ec5c<>res://.godot/imported/Ch33_nonPBR_5.png-0b0ad926bb8c5f43fa0ad0774c12d519.ctex::
-::res://assets/textures/::1760739879
+::res://assets/textures/::1760739891
 carpet.jpg::CompressedTexture2D::4715611130961549300::1760739878::1760739891::1::::<><><>0<>0<>7d8fc423033029bbc11b8331355c0bb3<>res://.godot/imported/carpet.jpg-3e52100ffd516e2f55712c33b52d1756.s3tc.ctex::
