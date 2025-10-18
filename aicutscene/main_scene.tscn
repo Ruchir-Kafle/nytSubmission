@@ -3,15 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://i25f1xntnw1o" path="res://joe.tscn" id="1_0f027"]
 [ext_resource type="Script" uid="uid://bfcjfa3i7iu28" path="res://main_scene.gd" id="1_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://cv62prst47c1b" path="res://dialogue.tscn" id="2_2c62f"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3jxj"]
-albedo_color = Color(0.439049, 0.439049, 0.439049, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_o3jxj"]
-material = SubResource("StandardMaterial3D_o3jxj")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o3jxj"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[ext_resource type="PackedScene" uid="uid://11yt4vpff5nh" path="res://assets/room/edited_room.glb" id="4_d5x1h"]
+[ext_resource type="PackedScene" uid="uid://dbyfxeepab76h" path="res://leonard.tscn" id="5_8mm7a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3jxj"]
 sky_top_color = Color(0.0896678, 0.120571, 0.21534, 1)
@@ -23,6 +16,7 @@ sky_material = SubResource("ProceduralSkyMaterial_o3jxj")
 
 [sub_resource type="Environment" id="Environment_0f027"]
 background_mode = 2
+background_energy_multiplier = 0.55
 sky = SubResource("Sky_o3jxj")
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.2
@@ -37,78 +31,13 @@ albedo_color = Color(0.141176, 0.372549, 0.972549, 1)
 material = SubResource("StandardMaterial3D_0f027")
 size = Vector3(0.02, 0.3, 0.02)
 
+[sub_resource type="BoxMesh" id="BoxMesh_d5x1h"]
+
 [node name="mainScene" type="Node3D"]
 script = ExtResource("1_gyfs4")
 
-[node name="floor" type="StaticBody3D" parent="."]
-transform = Transform3D(0.40597653, 0, 0, 0, 0.8380098, 0, 0, 0, 0.3549605, 0, 0.08030331, 0)
-metadata/_edit_group_ = true
-
-[node name="floor" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-mesh = SubResource("BoxMesh_o3jxj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_o3jxj")
-
-[node name="ceiling" type="StaticBody3D" parent="."]
-transform = Transform3D(0.40597653, 0, 0, 0, 0.8380098, 0, 0, 0, 0.3549605, 0, 3.508703, 0)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ceiling"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-mesh = SubResource("BoxMesh_o3jxj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ceiling"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_o3jxj")
-
-[node name="wall" type="StaticBody3D" parent="."]
-transform = Transform3D(-1.2977798e-08, -0.72191805, 0, 0.29689744, -3.155604e-08, 0, 0, 0, 0.35496044, -2.3284051, 1.7773819, 0)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-mesh = SubResource("BoxMesh_o3jxj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_o3jxj")
-
-[node name="wall2" type="StaticBody3D" parent="."]
-transform = Transform3D(-1.2977798e-08, -0.72191805, 0, 0.29689744, -3.155604e-08, 0, 0, 0, 0.35496044, 2.4340851, 1.7773819, 0)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-mesh = SubResource("BoxMesh_o3jxj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_o3jxj")
-
-[node name="wall4" type="StaticBody3D" parent="."]
-transform = Transform3D(5.672776e-16, 4.3711385e-08, 0.38779497, 0.29689744, -4.3711385e-08, 0, 1.2977798e-08, 0.9999999, -1.6951057e-08, 0, 1.777, -1.8860488)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="CSGBox3D" parent="wall4"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-
-[node name="MeshInstance3D2" type="CSGBox3D" parent="wall4/MeshInstance3D"]
-transform = Transform3D(0.41601127, -1.7763568e-15, -2.1175824e-22, -5.684342e-14, 1, -7.1054274e-14, 2.646978e-22, 0, 0.21488112, 0.17254692, 0, -0.20397569)
-operation = 2
-
-[node name="MeshInstance3D3" type="CSGBox3D" parent="wall4/MeshInstance3D"]
-transform = Transform3D(0.41601127, -1.7763568e-15, -2.1175824e-22, -5.684342e-14, 1, -7.1054274e-14, 2.646978e-22, 0, 0.21488114, 0.17254692, 0, 0.23357101)
-operation = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4"]
-transform = Transform3D(12.16, 0, 0, 0, 0.3, 0, 0, 0, 12.768, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_o3jxj")
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 1.9441172)
+transform = Transform3D(1, 0, 0, 0, 0.99957275, 0.029230107, 0, -0.029230107, 0.99957275, -0.535, 1.198, 0.717)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0f027")
@@ -127,19 +56,24 @@ initial_velocity_min = 10.0
 initial_velocity_max = 20.0
 
 [node name="joe" parent="." instance=ExtResource("1_0f027")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.147, -0.34678447)
-
-[node name="SpotLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.476, 0.88182396)
-light_color = Color(0.98212916, 0.9790123, 0.9792163, 1)
-light_energy = 2.366
-light_size = 16.1
-shadow_enabled = true
-omni_range = 397.504
-omni_attenuation = 2.515
-omni_shadow_mode = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5346011, -0.28049028, -0.9053221)
 
 [node name="dialogue" parent="." instance=ExtResource("2_2c62f")]
 metadata/_edit_use_anchors_ = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33469903, 2.9392729, 0.46262097)
+light_color = Color(0.8706562, 0.8685422, 0.86906695, 1)
+light_energy = 2.715
+
+[node name="roof" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.9749813, 0, 0, 0, 0.9084487, 0, 0, 0, 4.3099704, 0, 4.0726986, 0)
+mesh = SubResource("BoxMesh_d5x1h")
+
+[node name="edited_room2" parent="." instance=ExtResource("4_d5x1h")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+
+[node name="leonard" parent="." instance=ExtResource("5_8mm7a")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.535, -0.28, 0.8496869)
 
 [connection signal="dialogue_finished" from="dialogue" to="." method="_on_dialogue_dialogue_finished"]
