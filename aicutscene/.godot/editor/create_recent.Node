@@ -1,14 +1,14 @@
 AnimationPlayer
+Panel
+CanvasLayer
 MeshInstance3D
 OmniLight3D
 RichTextLabel
 Timer
 AnimationTree
 Label
-Panel
 Container
 DirectionalLight3D
 CSGBox3D
 SpotLight3D
 CPUParticles3D
-GPUParticles3D

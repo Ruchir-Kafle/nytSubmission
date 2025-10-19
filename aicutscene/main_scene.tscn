@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://qstik6kh4cmg"]
+[gd_scene load_steps=16 format=3 uid="uid://qstik6kh4cmg"]
 
 [ext_resource type="PackedScene" uid="uid://i25f1xntnw1o" path="res://joe.tscn" id="1_0f027"]
 [ext_resource type="Script" uid="uid://bfcjfa3i7iu28" path="res://main_scene.gd" id="1_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://cv62prst47c1b" path="res://dialogue.tscn" id="2_2c62f"]
 [ext_resource type="PackedScene" uid="uid://11yt4vpff5nh" path="res://assets/room/edited_room.glb" id="4_d5x1h"]
 [ext_resource type="PackedScene" uid="uid://dbyfxeepab76h" path="res://leonard.tscn" id="5_8mm7a"]
+[ext_resource type="PackedScene" uid="uid://qjtpjmp1dxxf" path="res://blink.tscn" id="6_hq1ik"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3jxj"]
 sky_top_color = Color(0.0896678, 0.120571, 0.21534, 1)
@@ -33,11 +34,48 @@ size = Vector3(0.02, 0.3, 0.02)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d5x1h"]
 
+[sub_resource type="Animation" id="Animation_8mm7a"]
+resource_name = "lookDown"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333332, 0.43333334, 0.71666664, 0.8833333, 0.99333334, 1.1166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.02923427, 0, 0), Vector3(-0.28576282, 0, 0), Vector3(-1.1025844, -0.2212356, 0.107990645), Vector3(-1.1025844, -0.2212356, 0.107990645), Vector3(-0.7398635, 0.33836955, -0.28924653), Vector3(-0.7081551, 0.323868, -0.27685025), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hq1ik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.02923427, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfk4m"]
+_data = {
+&"RESET": SubResource("Animation_hq1ik"),
+&"lookDown": SubResource("Animation_8mm7a")
+}
+
 [node name="mainScene" type="Node3D"]
 script = ExtResource("1_gyfs4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99957275, 0.029230107, 0, -0.029230107, 0.99957275, -0.535, 1.198, 0.717)
+transform = Transform3D(1.0000001, 0, 0, 0, 0.9995728, 0.029230108, 0, -0.029230108, 0.9995728, -0.535, 1.198, 0.717)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0f027")
@@ -75,5 +113,13 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
 
 [node name="leonard" parent="." instance=ExtResource("5_8mm7a")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.535, -0.28, 0.8496869)
+
+[node name="blink" parent="." instance=ExtResource("6_hq1ik")]
+
+[node name="cameraAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nfk4m")
+}
+speed_scale = 0.2
 
 [connection signal="dialogue_finished" from="dialogue" to="." method="_on_dialogue_dialogue_finished"]
