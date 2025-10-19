@@ -20,7 +20,7 @@ enum joeAnimations {
 	still_talking
 }
 
-enum cameraAnimations {
+enum youAnimations {
 	lookdown,
 	lookup
 }
@@ -32,26 +32,25 @@ enum animationStates {
 
 var counter = 0
 var conversation = [
-	[characters.principal, "{you}, I've heard that you've been using AI in your classes."],
-	[characters.you, "...", characters.you, cameraAnimations.lookup],
-	[characters.principal, "You do understand that this is a serious offense? Plagiarism is no joke!", characters.principal, joeAnimations.casual],
-	[characters.you, "Yeah, yeah, yeah. I get it."],
-	[characters.principal, "I don't think you do, since this is your second offense. The first time we were gracious in letting you redo the assignment, but if you're going to continue this behavior, we can't keep being lenient.", characters.principal, joeAnimations.talking],
+	[characters.principal, "{you}, I've been hearing reports from some of your teachers that you've been using AI to cheat on assignments"],
+	[characters.you, "... So what if I have?"],
+	[characters.principal, "You do realize using AI to cheat is a major offense? And look, I like AI just as much as the next person. AI can be a very useful and helpful tool if used correctly."],
+	[characters.principal, "But that's if it's used correctly. Using it to do your work for you is a terrible way to use it, it's not constructive at all."],
+	[characters.you, "... There's no point in doing these worthless assignments..."],
+	[characters.principal, "Sorry? Could you speak loude-"],
+	[characters.you, "I said there's no point in doing this work!! Why should I stress myself with this busy work if I can just... not!"],
+	[characters.principal, "..."],
+	[characters.principal, "What makes you think it's busy work?"],
+	[characters.you, "There's just... no benefit. I don't want to write some essay."],
+	[characters.principal, "There's a point. Everything we have you do here is meant to prepare you for college and your life after."],
+	[characters.you, "Yeah but... uh... like..."],
+	[characters.principal, "I know that you're more capable of the work being asked of you."],
 	[characters.you, "..."],
-	[characters.principal, "{you}."],
-	[characters.you, "..."],
-	[characters.principal, "Hey, come on, I'm trying to help you.", characters.principal, joeAnimations.leaning],
-	[characters.you, "If you were trying to help me, you'd leave me alone."],
-	[characters.principal, "That's not helpful. Plagiarism is a crime that you can be expelled for. We're trying to teach you that.", characters.principal, joeAnimations.still_talking],
-	[characters.you, "Yeah right. Just shut up.", characters.principal, animationStates.pause],
-	[characters.principal, "...", characters.you, cameraAnimations.lookdown],
-	[characters.principal, "Is that all you have to say for yourself?", characters.principal, animationStates.play],
-	[characters.you, "..."],
-	[characters.principal, "Well, if you're not going to cooperate with me, you leave me no choice but to expel you.", characters.principal, joeAnimations.talking],
-	[characters.you, "Huh?"],
-	[characters.principal, "It seems this is the only way to teach you a lesson."],
-	[characters.you, "Wait... you can't do that though."],
-	[characters.principal, "I just did. Now get out of my sight."]
+	[characters.principal, "I'll give you... a week. In that time, I want you to rewrite the essay - by hand - and come back to me when you've finished. Are you fine with that?"],
+	[characters.you, "... Yeah, alright."],
+	[characters.principal, "Alright, make sure to get that done. I'm excited to see it!"],
+	[characters.you, "Alright, thanks mister."],
+	[characters.principal, "Mhm."]
 ]
 
 func _ready() -> void:
@@ -83,4 +82,4 @@ func _on_dialogue_dialogue_finished() -> void:
 				if line[2] == characters.principal:
 					joeAnimationPlayer.play(joeAnimations.keys()[line[3]], 1.25)
 				elif line[2] == characters.you:
-					cameraAnimationPlayer.play(cameraAnimations.keys()[line[3]], 1.25)
+					cameraAnimationPlayer.play(youAnimations.keys()[line[3]], 1.25)
