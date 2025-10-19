@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://qjtpjmp1dxxf"]
+[gd_scene load_steps=6 format=3 uid="uid://qjtpjmp1dxxf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b01gv"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_b01gv"]
 resource_name = "blink"
-length = 0.2
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,10 +13,10 @@ tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vaxn1"]
@@ -34,10 +34,27 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_1gu6k"]
+resource_name = "start"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.2666667, 2.1000001, 2.5666668, 2.9333334, 3.4333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.5137255), Color(0, 0, 0, 0.5137255), Color(0, 0, 0, 0.21960784), Color(0, 0, 0, 0.64705884), Color(0, 0, 0, 1), Color(0, 0, 0, 0.29411766), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1gu6k"]
 _data = {
 &"RESET": SubResource("Animation_vaxn1"),
-&"blink": SubResource("Animation_b01gv")
+&"blink": SubResource("Animation_b01gv"),
+&"start": SubResource("Animation_1gu6k")
 }
 
 [node name="blink" type="Control"]
@@ -61,3 +78,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_b01gv")
 libraries = {
 &"": SubResource("AnimationLibrary_1gu6k")
 }
+speed_scale = 1.25
