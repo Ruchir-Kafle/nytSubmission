@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://qstik6kh4cmg"]
+[gd_scene load_steps=18 format=3 uid="uid://qstik6kh4cmg"]
 
 [ext_resource type="PackedScene" uid="uid://i25f1xntnw1o" path="res://joe.tscn" id="1_0f027"]
 [ext_resource type="Script" uid="uid://bfcjfa3i7iu28" path="res://main_scene.gd" id="1_gyfs4"]
@@ -65,17 +65,34 @@ tracks/0/keys = {
 "values": [Vector3(-0.02923427, 0, 0), Vector3(-0.28576282, 0, 0), Vector3(-1.1025844, -0.2212356, 0.107990645), Vector3(-1.1025844, -0.2212356, 0.107990645), Vector3(-0.7398635, 0.33836955, -0.28924653), Vector3(-0.7081551, 0.323868, -0.27685025), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_nfk4m"]
+resource_name = "lookup"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.34, 0.44, 0.56666666, 0.6333333, 0.87, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.3187915, -0.9560618, 0.81106883), Vector3(-1.4079988, 0.47940403, -0.6449037), Vector3(-1.2559216, 0.24380243, -0.40317887), Vector3(-1.0910056, -0.19252877, 0.051881947), Vector3(-1.0910056, -0.19252877, 0.051881947), Vector3(-0.9535191, -0.43415856, 0.3249766), Vector3(-0.4513331, -0.2739861, 0.085470095), Vector3(-0.18974787, -0.116117515, 0.021577664), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nfk4m"]
 _data = {
 &"RESET": SubResource("Animation_hq1ik"),
-&"lookdown": SubResource("Animation_8mm7a")
+&"lookdown": SubResource("Animation_8mm7a"),
+&"lookup": SubResource("Animation_nfk4m")
 }
 
 [node name="mainScene" type="Node3D"]
 script = ExtResource("1_gyfs4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1.0000001, 0, 0, 0, 0.9995728, 0.029230108, 0, -0.029230108, 0.9995728, -0.535, 1.198, 0.717)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9995726, 0.029230103, 0, -0.029230101, 0.99957263, -0.535, 1.198, 0.717)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0f027")

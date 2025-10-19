@@ -5,6 +5,7 @@ extends Node3D
 @onready var joeAnimationPlayer = joe.get_node("joeAnimation")
 @onready var blinkAnimationPlayer = get_node("blink").get_node("AnimationPlayer")
 @onready var cameraAnimationPlayer = get_node("cameraAnimation")
+@onready var camera = get_node("Camera3D")
 
 enum characters {
 	you,
@@ -20,25 +21,26 @@ enum joeAnimations {
 }
 
 enum cameraAnimations {
-	lookdown
+	lookdown,
+	lookup
 }
 
 enum animationStates {
-	pause,
-	play
+	pause = 20,
+	play = 21
 }
 
 var counter = 0
 var conversation = [
 	[characters.principal, "{you}, I've heard that you've been using AI in your classes."],
-	[characters.you, "..."],
+	[characters.you, "...", characters.you, cameraAnimations.lookup],
 	[characters.principal, "You do understand that this is a serious offense? Plagiarism is no joke!", characters.principal, joeAnimations.casual],
 	[characters.you, "Yeah, yeah, yeah. I get it."],
 	[characters.principal, "I don't think you do, since this is your second offense. The first time we were gracious in letting you redo the assignment, but if you're going to continue this behavior, we can't keep being lenient.", characters.principal, joeAnimations.talking],
 	[characters.you, "..."],
-	[characters.principal, "{you}.", characters.principal, joeAnimations.leaning],
+	[characters.principal, "{you}."],
 	[characters.you, "..."],
-	[characters.principal, "Hey, come on, I'm trying to help you."],
+	[characters.principal, "Hey, come on, I'm trying to help you.", characters.principal, joeAnimations.leaning],
 	[characters.you, "If you were trying to help me, you'd leave me alone."],
 	[characters.principal, "That's not helpful. Plagiarism is a crime that you can be expelled for. We're trying to teach you that.", characters.principal, joeAnimations.still_talking],
 	[characters.you, "Yeah right. Just shut up.", characters.principal, animationStates.pause],
@@ -54,6 +56,8 @@ var conversation = [
 
 func _ready() -> void:
 	blinkAnimationPlayer.play("start")
+	
+	camera.rotation_degrees = Vector3(-75.6, -54.8, 46.5)
 	
 	var line = conversation[0]
 	dialogueNode.emit_signal("character_dialogue", characters.keys()[line[0]].capitalize(), line[1])
