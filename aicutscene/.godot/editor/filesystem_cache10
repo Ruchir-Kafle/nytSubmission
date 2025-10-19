@@ -1,13 +1,18 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760825871
+::res://::1760895928
+blink.gd::GDScript::8868187580334064135::1760843022::0::1::::<>Control<><>0<>0<><>::
+blink.tscn::PackedScene::1142781799730418055::1760843062::0::1::::<><><>0<>0<><>::
 dialogue.gd::GDScript::4382371685141033420::1760820772::0::1::::<>Control<><>0<>0<><>::
-dialogue.tscn::PackedScene::6312469861480722861::1760820736::0::1::::<><><>0<>0<><>::uid://b3o4ayynhgbai::::res://dialogue.gd
-joe.tscn::PackedScene::619080788970584914::1760822479::0::1::::<><><>0<>0<><>::uid://bijiabiqyunaq::::res://assets/joe/Ch33_nonPBR.fbx<>uid://l7c26i4oovne::::res://assets/desk/10240_Office_Desk_v3_max2011.obj<>uid://bnmyyep4l7cmh::::res://office_chair.tscn
-leonard.tscn::PackedScene::7279340835992642061::1760825833::0::1::::<><><>0<>0<><>::uid://5ovudaghegm4::::res://assets/leonard/Ch31_nonPBR.fbx<>uid://bnmyyep4l7cmh::::res://office_chair.tscn
-main_scene.gd::GDScript::2742049082956913479::1760822479::0::1::::<>Node3D<><>0<>0<><>::
-main_scene.tscn::PackedScene::1161348780582685566::1760825690::0::1::::<><><>0<>0<><>::uid://i25f1xntnw1o::::res://joe.tscn<>uid://bfcjfa3i7iu28::::res://main_scene.gd<>uid://cv62prst47c1b::::res://dialogue.tscn<>uid://11yt4vpff5nh::::res://assets/room/edited_room.glb
+dialogue.tscn::PackedScene::6312469861480722861::1760843022::0::1::::<><><>0<>0<><>::uid://b3o4ayynhgbai::::res://dialogue.gd
+joe.tscn::PackedScene::619080788970584914::1760895321::0::1::::<><><>0<>0<><>::uid://bijiabiqyunaq::::res://assets/joe/Ch33_nonPBR.fbx<>uid://l7c26i4oovne::::res://assets/desk/10240_Office_Desk_v3_max2011.obj<>uid://bnmyyep4l7cmh::::res://office_chair.tscn
+leonard.tscn::PackedScene::7279340835992642061::1760826206::0::1::::<><><>0<>0<><>::uid://5ovudaghegm4::::res://assets/leonard/Ch31_nonPBR.fbx<>uid://bnmyyep4l7cmh::::res://office_chair.tscn
+main_scene.gd::GDScript::2742049082956913479::1760895539::0::1::::<>Node3D<><>0<>0<><>::
+main_scene.tscn::PackedScene::1161348780582685566::1760895732::0::1::::<><><>0<>0<><>::uid://i25f1xntnw1o::::res://joe.tscn<>uid://bfcjfa3i7iu28::::res://main_scene.gd<>uid://cv62prst47c1b::::res://dialogue.tscn<>uid://11yt4vpff5nh::::res://assets/room/edited_room.glb<>uid://dbyfxeepab76h::::res://leonard.tscn<>uid://qjtpjmp1dxxf::::res://blink.tscn<>uid://dyl20vm7j1r8b::::res://blink.gd
 office_chair.tscn::PackedScene::3325148485515406263::1760739262::0::1::::<><><>0<>0<><>::uid://ie46x2v4jeup::::res://assets/chair/Office chair.fbx
-::res://assets/::1760825578
+::res://assets/::1760895928
+::res://assets/animations/::1760895937
+Sitting Talking.fbx::PackedScene::1684422976578929424::1760895937::1760895937::1::::<><><>0<>0<>b5d0d2f13b5bd1adfa779cf3ff538451<>res://.godot/imported/Sitting Talking.fbx-201f92aa422f63d7802f0a46033494e6.scn::
+Talking.fbx::PackedScene::1129567694383513161::1760893018::1760895929::1::::<><><>0<>0<>32f07f8b024e9a42ad035096b89c801e<>res://.godot/imported/Talking.fbx-976a5da8f75b4e7b67b6f9941d164c72.scn::
 ::res://assets/chair/::1760737235
 Office chair.fbx::PackedScene::571585663261806655::1760737149::1760737235::1::::<><><>0<>0<>c9757e8de4e3558e4ed5ebed1c0feab7<>res://.godot/imported/Office chair.fbx-18a2c47363c15e3a5a4b26b5c7b3aa6c.scn::uid://f454p484dif3::::res://assets/chair/Office chair_0.png<>uid://c1og7nu3ukaqb::::res://assets/chair/Office chair_2.png
 Office chair_0.png::CompressedTexture2D::412685305051961646::1760737149::1760737235::1::::<><><>0<>0<>d7aef0b1abfb51b8c70941ac55fc217a<>res://.godot/imported/Office chair_0.png-ce9960eabfd31deb6dc40ec6fb6ca384.s3tc.ctex::

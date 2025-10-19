@@ -27,7 +27,6 @@ fog_density = 1.0
 fog_height_density = 12.1263
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f027"]
-albedo_color = Color(0.141176, 0.372549, 0.972549, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2c62f"]
 material = SubResource("StandardMaterial3D_0f027")
@@ -82,7 +81,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 0.9995728, 0.029230108, 0, -0.029230
 environment = SubResource("Environment_0f027")
 
 [node name="rain" type="CPUParticles3D" parent="."]
-transform = Transform3D(4.9201894, 0, 0, 0, 4.546419, 0, 0, 0, 9.109161, 0, 4.948862, -18.7347)
+transform = Transform3D(4.9201894, 0, 0, 0, 4.546419, 0, 0, 0, 9.109161, 0, 4.948862, -13.322888)
 amount = 2000
 lifetime = 2.0
 preprocess = 1.0

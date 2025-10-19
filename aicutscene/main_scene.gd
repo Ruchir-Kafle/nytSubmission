@@ -14,11 +14,18 @@ enum characters {
 enum joeAnimations {
 	casual,
 	sit,
-	leaning
+	leaning,
+	talking,
+	still_talking
 }
 
 enum cameraAnimations {
 	lookdown
+}
+
+enum animationStates {
+	pause,
+	play
 }
 
 var counter = 0
@@ -27,18 +34,18 @@ var conversation = [
 	[characters.you, "..."],
 	[characters.principal, "You do understand that this is a serious offense? Plagiarism is no joke!", characters.principal, joeAnimations.casual],
 	[characters.you, "Yeah, yeah, yeah. I get it."],
-	[characters.principal, "I don't think you do, since this is your second offense. The first time we were gracious in letting you redo the assignment, but if you're going to continue this behavior, we can't keep being lenient.", characters.principal, joeAnimations.sit],
+	[characters.principal, "I don't think you do, since this is your second offense. The first time we were gracious in letting you redo the assignment, but if you're going to continue this behavior, we can't keep being lenient.", characters.principal, joeAnimations.talking],
 	[characters.you, "..."],
 	[characters.principal, "{you}.", characters.principal, joeAnimations.leaning],
 	[characters.you, "..."],
 	[characters.principal, "Hey, come on, I'm trying to help you."],
 	[characters.you, "If you were trying to help me, you'd leave me alone."],
-	[characters.principal, "That's not helpful. Plagiarism is a crime that you can be expelled for. We're trying to teach you that."],
-	[characters.you, "Yeah right. Just shut up."],
+	[characters.principal, "That's not helpful. Plagiarism is a crime that you can be expelled for. We're trying to teach you that.", characters.principal, joeAnimations.still_talking],
+	[characters.you, "Yeah right. Just shut up.", characters.principal, animationStates.pause],
 	[characters.principal, "...", characters.you, cameraAnimations.lookdown],
-	[characters.principal, "Is that all you have to say for yourself?"],
+	[characters.principal, "Is that all you have to say for yourself?", characters.principal, animationStates.play],
 	[characters.you, "..."],
-	[characters.principal, "Well, if you're not going to cooperate with me, you leave me no choice but to expel you."],
+	[characters.principal, "Well, if you're not going to cooperate with me, you leave me no choice but to expel you.", characters.principal, joeAnimations.talking],
 	[characters.you, "Huh?"],
 	[characters.principal, "It seems this is the only way to teach you a lesson."],
 	[characters.you, "Wait... you can't do that though."],
@@ -58,7 +65,18 @@ func _on_dialogue_dialogue_finished() -> void:
 		dialogueNode.emit_signal("character_dialogue", characters.keys()[line[0]].capitalize(), line[1])
 		
 		if len(line) > 2:
-			if line[2] == characters.principal:
-				joeAnimationPlayer.play(joeAnimations.keys()[line[3]])
-			elif line[2] == characters.you:
-				cameraAnimationPlayer.play(cameraAnimations.keys()[line[3]])
+			if line[3] == animationStates.pause:
+				if line[2] == characters.principal:
+					joeAnimationPlayer.pause()
+				elif line[2] == characters.you:
+					cameraAnimationPlayer.pause()
+			elif line[3] == animationStates.play:
+				if line[2] == characters.principal:
+					joeAnimationPlayer.play()
+				elif line[2] == characters.you:
+					cameraAnimationPlayer.play()
+			else:
+				if line[2] == characters.principal:
+					joeAnimationPlayer.play(joeAnimations.keys()[line[3]], 1.25)
+				elif line[2] == characters.you:
+					cameraAnimationPlayer.play(cameraAnimations.keys()[line[3]], 1.25)
