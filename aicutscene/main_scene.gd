@@ -32,7 +32,8 @@ enum animationStates {
 
 var counter = 0
 var conversation = [
-	[characters.principal, "{you}, I've been hearing reports from some of your teachers that you've been using AI to cheat on assignments"],
+	[characters.principal, "{you}, I've been hearing reports from some of your teachers that you've been using AI to cheat on assignments", {characters.you: [youAnimations.lookup, 0.5],
+		characters.principal: [joeAnimations.talking, 0]}],
 	[characters.you, "... So what if I have?"],
 	[characters.principal, "You do realize using AI to cheat is a major offense? And look, I like AI just as much as the next person. AI can be a very useful and helpful tool if used correctly."],
 	[characters.principal, "But that's if it's used correctly. Using it to do your work for you is a terrible way to use it, it's not constructive at all."],
@@ -52,6 +53,7 @@ var conversation = [
 	[characters.you, "Alright, thanks mister."],
 	[characters.principal, "Mhm."]
 ]
+var animationsToPlay = []
 
 func _ready() -> void:
 	blinkAnimationPlayer.play("start")
@@ -61,25 +63,44 @@ func _ready() -> void:
 	var line = conversation[0]
 	dialogueNode.emit_signal("character_dialogue", characters.keys()[line[0]].capitalize(), line[1])
 
+func _process(_delta: float) -> void:
+	run_animations()
+
 func _on_dialogue_dialogue_finished() -> void:
 	counter += 1
 	if len(conversation) > counter:
 		var line = conversation[counter]
 		dialogueNode.emit_signal("character_dialogue", characters.keys()[line[0]].capitalize(), line[1])
 		
-		if len(line) > 2:
-			if line[3] == animationStates.pause:
-				if line[2] == characters.principal:
-					joeAnimationPlayer.pause()
-				elif line[2] == characters.you:
-					cameraAnimationPlayer.pause()
-			elif line[3] == animationStates.play:
-				if line[2] == characters.principal:
-					joeAnimationPlayer.play()
-				elif line[2] == characters.you:
-					cameraAnimationPlayer.play()
+		if len(line) == 3:
+			for animation in line[2].keys():
+				animationsToPlay.append([animation, line[2][animation]])
+
+
+func run_animations():
+	var clear = []
+	var textVisibleRatio = dialogueNode.get_node("characterText").visible_ratio
+	
+	for animation in animationsToPlay:
+		var animationPlayer
+		var characterEnum
+		
+		if textVisibleRatio >= animation[1][1]:
+			if animation[0] == characters.you:
+				animationPlayer = cameraAnimationPlayer
+				characterEnum = youAnimations
+			elif animation[0] == characters.principal:
+				animationPlayer = joeAnimationPlayer
+				characterEnum = joeAnimations
+				
+			if animation[1][0] == animationStates.pause:
+				animationPlayer.pause()
+			elif animation[1][0] == animationStates.play:
+				animationPlayer.play()
 			else:
-				if line[2] == characters.principal:
-					joeAnimationPlayer.play(joeAnimations.keys()[line[3]], 1.25)
-				elif line[2] == characters.you:
-					cameraAnimationPlayer.play(youAnimations.keys()[line[3]], 1.25)
+				animationPlayer.play(characterEnum.keys()[animation[1][0]], 1.25)
+	
+			clear.append(animation)
+	
+	for removal in clear:
+		animationsToPlay.erase(removal)
