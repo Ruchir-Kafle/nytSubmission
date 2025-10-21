@@ -10,9 +10,6 @@ signal dialogue_finished()
 
 var delayBetweenLines = 1.5
 
-func _ready() -> void:
-	emit_signal("character_dialogue", "placeholder", "placeholder")
-
 func _on_character_dialogue(character, text) -> void:
 	textPanel.visible = true
 	namePanel.visible = true

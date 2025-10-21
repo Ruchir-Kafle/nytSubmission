@@ -1,5 +1,7 @@
 # nytSubmission
 
+This scene was made in the game engine: Godot.
+
 ChatGPT was used in the creation of this project. ChatGPT was used for the purpose of gathering information, debugging, and feedback. When deciding what tools to use for this project, through the help of ChatGPT, I came to the decision to use Godot, the game engine this scene was created in. With assistance from ChatGPT, I was able to find relevant information regarding various settings in Godot that would help achieve the desired environment and animations in the project. No code was generated using AI. ChatGPT was also used for debugging, that is for understanding why various game engine settings wouldn't work under specific circumstances. Finally, ChatGPT was used to provide feedback on the dialogue of the characters in the scenario.
 
 All the assets that were used to aid in the creation of this animation:

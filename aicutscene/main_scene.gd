@@ -56,17 +56,19 @@ var conversation = [
 	[characters.principal, "Mhm."]
 ]
 var animationsToPlay = []
+var started = false
 
-func _ready() -> void:
+func begin() -> void:
 	blinkAnimationPlayer.play("start")
-	
 	camera.rotation_degrees = Vector3(-75.6, -54.8, 46.5)
-	
 	characterText.visible_ratio = 0
-	
 	trigger_line()
 
 func _process(_delta: float) -> void:
+	if Input.get_action_strength("begin") and not started:
+		started = true
+		begin()
+	
 	run_animations()
 
 func trigger_line():
