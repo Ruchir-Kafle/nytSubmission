@@ -1,7 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://qjtpjmp1dxxf"]
+[gd_scene load_steps=8 format=3 uid="uid://qjtpjmp1dxxf"]
+
+[ext_resource type="Script" uid="uid://dyl20vm7j1r8b" path="res://blink.gd" id="1_vaxn1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b01gv"]
 bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_vaxn1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_b01gv"]
 resource_name = "blink"
@@ -19,21 +36,6 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_vaxn1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_1gu6k"]
 resource_name = "start"
 length = 3.5
@@ -44,16 +46,33 @@ tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9, 1.2666667, 2.1000001, 2.5666668, 2.9333334, 3.4333334),
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.2666667, 2.1000001, 2.5666668, 2.8666666, 3.4333334),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.5137255), Color(0, 0, 0, 0.5137255), Color(0, 0, 0, 0.21960784), Color(0, 0, 0, 0.64705884), Color(0, 0, 0, 1), Color(0, 0, 0, 0.29411766), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1aiog"]
+resource_name = "end"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1gu6k"]
 _data = {
 &"RESET": SubResource("Animation_vaxn1"),
 &"blink": SubResource("Animation_b01gv"),
+&"end": SubResource("Animation_1aiog"),
 &"start": SubResource("Animation_1gu6k")
 }
 
@@ -64,6 +83,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vaxn1")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -79,3 +99,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_1gu6k")
 }
 speed_scale = 1.25
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

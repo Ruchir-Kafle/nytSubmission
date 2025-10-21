@@ -16,6 +16,9 @@ room
 This work is based on "Manor Morning - Isometric Room" (https://sketchfab.com/3d-models/manor-morning-isometric-room-d9d06e1de00c4224b7c5b29e020302c4) by JackWolf248 (https://sketchfab.com/JackWolf248) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 
 
-
 animation #2 sitting talking 
 https://www.mixamo.com/#/?page=1&query=sitting+talking
+
+
+camera shake code
+https://www.youtube.com/watch?v=LGt-jjVf-ZU&t=199s

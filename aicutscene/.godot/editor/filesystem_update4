@@ -1,4 +1,8 @@
-res://main_scene.tscn
-res://joe.tscn
-res://main_scene.gd
 res://dialogue.tscn
+res://main_scene.gd
+res://joe.tscn
+res://main_scene.tscn
+res://camera_animation.gd
+res://dialogue.gd
+res://blink.tscn
+res://blink.gd

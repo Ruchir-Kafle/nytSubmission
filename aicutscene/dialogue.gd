@@ -8,6 +8,8 @@ signal dialogue_finished()
 @onready var namePanel = get_node("namePanel")
 @onready var typewriterTimer = get_node("typewriterTimer")
 
+var delayBetweenLines = 1.5
+
 func _ready() -> void:
 	emit_signal("character_dialogue", "placeholder", "placeholder")
 
@@ -24,7 +26,7 @@ func _on_typewriter_timer_timeout() -> void:
 	characterText.visible_characters += 1
 	
 	if characterText.visible_ratio == 1:
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(delayBetweenLines).timeout
 		characterText.visible_characters = 0
 		characterText.text = ""
 		characterName.text = ""
